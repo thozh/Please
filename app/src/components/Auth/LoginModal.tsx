@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Alert, Image, View} from 'react-native';
 import {
@@ -7,7 +8,6 @@ import {
   Portal,
   TextInput,
   Title,
-  HelperText,
 } from 'react-native-paper';
 import auth from '../../api/auth';
 import {Images} from '../../assets';
@@ -18,14 +18,19 @@ import metrics from '../../theme/metrics';
 export function LoginModal({visible, setVisible}) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState(null);
+  const navigation = useNavigation();
 
   const onLogin = async () => {
     try {
       await auth.login(email, password);
-      Alert.alert('Connecté');
+      setVisible(false);
+      // Save token to async storage
+      // ...
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'App'}],
+      });
     } catch (error) {
-      console.log(JSON.stringify(error, null, '	'));
       Alert.alert('Erreur de connexion', error.message);
     }
   };
@@ -63,6 +68,7 @@ export function LoginModal({visible, setVisible}) {
                 value={email}
                 style={{backgroundColor: colors.white}}
                 onChangeText={(text) => setEmail(text)}
+                autoCapitalize={false}
                 left={<TextInput.Icon name="account-outline" />}
               />
 
@@ -72,6 +78,7 @@ export function LoginModal({visible, setVisible}) {
                 secureTextEntry
                 style={{backgroundColor: colors.white}}
                 onChangeText={(text) => setPassword(text)}
+                autoCapitalize={false}
                 left={<TextInput.Icon name="lock-outline" />}
               />
             </View>

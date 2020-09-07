@@ -1,17 +1,22 @@
 import React from 'react';
-import {View, KeyboardAvoidingView} from 'react-native';
-import {Avatar} from 'react-native-paper';
+import {View} from 'react-native';
 import Swiper from 'react-native-swiper';
+import {LoginModal} from '../../components/Auth/LoginModal';
 import SwiperScreen from '../../components/Auth/SwiperScreen';
 import helpers from '../../theme/helpers';
-import {LoginModal} from '../../components/Auth/LoginModal';
 
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
-
+enum SwiperSteps {
+  FIRST,
+  SECOUND,
+  THIRD,
+  FOURTH,
+  LAST,
+}
 const AuthSwiper = () => {
   const swiper = React.useRef(null);
   const [visible, setVisible] = React.useState(false);
   const [autoplay, setAutoplay] = React.useState(true);
+
   return (
     <Swiper
       ref={swiper}
@@ -19,7 +24,7 @@ const AuthSwiper = () => {
       loop={false}
       autoplay={autoplay}
       onIndexChanged={(index) => {
-        if (index === 4) {
+        if (index === SwiperSteps.LAST) {
           const animated = false;
           setVisible(true);
           setAutoplay(false);

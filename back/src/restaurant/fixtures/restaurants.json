@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Burger King",
+    "reviews": [
+      {
+        "message": "Excellent"
+      },
+      {
+        "message": "Je recommande"
+      }
+    ],
+    "rating": 4,
+    "minimum_price": 11,
+    "specialities": ["burgers", "wraps", "snacks"],
+    "type": "fast food"
+  },
+  {
+    "id": 2,
+    "name": "Mezzo Di Pasta",
+    "reviews": [
+      {
+        "message": "Excellent"
+      },
+      {
+        "message": "Je recommande"
+      }
+    ],
+    "rating": 5,
+    "minimum_price": 11,
+    "specialities": ["pâtes"],
+    "type": "restaurants"
+  },
+  {
+    "id": 3,
+    "name": "Le Keb's",
+    "reviews": [
+      {
+        "message": "Excellent"
+      },
+      {
+        "message": "Je recommande"
+      }
+    ],
+    "rating": 4,
+    "minimum_price": 10,
+    "specialities": ["tacos", "kebab", "assiette"],
+    "type": "fast food"
+  },
+  {
+    "id": 4,
+    "name": "Chez Steeve",
+    "reviews": [
+      {
+        "message": "Excellent"
+      },
+      {
+        "message": "Je recommande"
+      }
+    ],
+    "rating": 5,
+    "minimum_price": 10,
+    "specialities": ["mauricien", "briani"],
+    "type": "commande à l'avance"
+  }
+]
