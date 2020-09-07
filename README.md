@@ -47,4 +47,4 @@ cd mobile && yarn [ios|android]
 cd mobile/android && ./gradlew assembleRelease
 ```
 
-[Download apk](https://we.tl/t-YHDaylBobq)
+[Download apk](https://we.tl/t-Y2nV3u8o17)
